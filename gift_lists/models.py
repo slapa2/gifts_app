@@ -10,7 +10,7 @@ class GiftList(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='giftLists')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    shared_to = models.ManyToManyField(User, related_name='shared_gift_lists')
+    shared_to = models.ManyToManyField(User, related_name='shared_gift_lists', blank=True)
 
     def __str__(self):
         return self.name
