@@ -46,6 +46,15 @@ class GiftListDetailView(DetailView):
         context.update(self.extra_context)
         return context
 
+class GiftCreateView(CreateView):
+    model = Gift
+    fields = ["name", 'description', 'image_url', ]
+    template_name = 'gift_lists/gift_create.html'
+
+    def form_valid(self, form):
+        form.instance.gift_list = GiftList.objects.filter(owner=self.request.user).get(pk=self.kwargs.get('pk'))
+        return super().form_valid(form)
+
 class GiftDetailView(DetailView):
     model = Gift
     template_name = 'gift_lists/gift.html'

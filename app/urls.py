@@ -20,7 +20,9 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import Home
 
-from gift_lists.views import GiftListListView, GiftListCreateView, GiftListDetailView, GiftDetailView
+from gift_lists.views import GiftListListView, GiftListCreateView, GiftListDetailView, GiftCreateView, \
+    GiftDetailView
+
 from friend.views import FriendGiftListListView, FriendGiftListDetailView, FriendGiftDetailView
 
 
@@ -32,7 +34,9 @@ urlpatterns = [
     path("gift-list/", GiftListListView.as_view(), name='gift-list'),
     path("gift-list/add/", GiftListCreateView.as_view(), name='gift-list-add'),
     path("gift-list/<int:pk>", GiftListDetailView.as_view(), name='gift-list-detail'),
-    path("gift/<int:pk>", GiftDetailView.as_view(), name='gift-detail'),
+
+    path("gift-list/<int:pk>/gift/add", GiftCreateView.as_view(), name='gift-add'),
+    path("gift-list/<int:pk>/gift", GiftDetailView.as_view(), name='gift-detail'),
 
     # friend
     path("friend/gift-list-list/", FriendGiftListListView.as_view(), name='friend-gift-list'),
