@@ -1,0 +1,26 @@
+{% extends "base/base.html" %} {% load crispy_forms_tags %} {% block title %}
+{{section.title }} {% endblock %} {% block content %}
+
+<div
+  class="card position-absolute top-50 start-50 translate-middle"
+  style="width: 40rem"
+>
+  <div class="card-body">
+    <h5 class="card-title">Dojaj nową listę</h5>
+    <form method="post" class="my-class">
+        
+        {% csrf_token %} {{ form|crispy }}
+
+    <div class="form-actions">
+      <input
+        type="submit"
+        name="submit"
+        value="Dodaj"
+        class="btn btn-dark"
+        id="submit-save"
+      /></form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -15,6 +15,10 @@ class GiftList(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("gift-list-detail", kwargs={"pk": self.pk})
+
 
 class Gift(models.Model):
     name = models.TextField()

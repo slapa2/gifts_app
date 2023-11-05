@@ -24,6 +24,11 @@ class GiftListListView(ListView):
 class GiftListCreateView(CreateView):
     model = GiftList
     fields = ["name"]
+    template_name = 'gift_lists/gift_list_create.html'
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 class GiftListDetailView(DetailView):
     model = GiftList
