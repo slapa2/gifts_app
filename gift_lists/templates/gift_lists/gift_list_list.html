@@ -5,7 +5,7 @@
   {% for object in object_list %}
 
   <a
-    href="{% url 'my-gift-list-detail' pk=object.pk %}"
+    href="{% url 'gift-list-detail' pk=object.pk %}"
     class="list-group-item list-group-item-action"
   >
     {{ object.name }}
