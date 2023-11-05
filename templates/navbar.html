@@ -17,7 +17,7 @@
         {% if user.is_authenticated %}
         <li class="nav-item">
           <a
-            class="nav-link active"
+            class="nav-link {{ my_lists }}"
             aria-current="page"
             href="{% url 'my-gift-list' %}"
             >Moje listy</a
@@ -25,7 +25,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link {{ friend_lists }}"
             aria-current="page"
             href="{% url 'friend-gift-list' %}"
             >Listy znajomych</a

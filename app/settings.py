@@ -128,7 +128,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = '/gift-list'
+LOGIN_REDIRECT_URL = '/gift-list/gift-list'
 LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
