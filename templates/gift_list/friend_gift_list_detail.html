@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>{{ object.name }}</h1>
+<ul>
+  {% for gift in object.gifts.all %}
+  <li><a href="{% url 'friend-gift-detail' pk=gift.pk %}">{{ gift.name }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
