@@ -33,6 +33,10 @@ class Gift(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("gift-detail", kwargs={"pk": self.pk})
+
 class GiftShopLink(models.Model):
     url = models.URLField()
     gift = models.ForeignKey(Gift, on_delete=models.CASCADE, related_name='shop_urls')
