@@ -6,6 +6,7 @@
   <a href="/account/logout">Wyloguj</a>
   <span>{{ user.email }}</span>
   {% else %}
+  <a href="{% url 'register' %}" class="button">Rejestracja</a>
   <a href="/account/login" class="button">Zaloguj</a>
   {% endif %}
 </nav>

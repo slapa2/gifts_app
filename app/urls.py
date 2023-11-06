@@ -24,6 +24,7 @@ from gift_lists.views import GiftListListView, GiftListCreateView, GiftListDetai
     GiftDetailView
 
 from friend.views import FriendGiftListListView, FriendGiftListDetailView, FriendGiftDetailView
+from users.views import UserCreateView
 
 
 
@@ -46,6 +47,7 @@ urlpatterns = [
     # users
     path("account/login/", auth_views.LoginView.as_view(), name='login'),
     path("account/logout/", auth_views.LogoutView.as_view(), name='logout'),
+    path("account/register/", UserCreateView.as_view(), name='register'),
 
     # other
     path('admin/', admin.site.urls),

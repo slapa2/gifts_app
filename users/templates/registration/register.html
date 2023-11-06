@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+
+<form method="POST" novalidate>
+	{% csrf_token %}
+	<p>
+	{{ form.as_p }}		
+    </p>
+	<input type="submit" value="Zarejestruj" class="button" />
+</form>
+
+{% endblock content%}
