@@ -25,6 +25,20 @@
   <tr>
     <td colspan="2">{{ gift.description }}</td>
   </tr>
+  {% endif %} {% if gift.shop_urls %}
+  <tr>
+    <td colspan="2">
+      <ol>
+        {% for shop in gift.shop_urls.all %}
+        <li>
+          <a href="{{ shop.url }}" target="_blank"
+            >{{ shop.url | truncatechars:60 }}</a
+          >
+        </li>
+        {% endfor %}
+      </ol>
+    </td>
+  </tr>
   {% endif %}
 </table>
 
