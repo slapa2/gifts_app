@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
   </head>
   <body>
-    {% include "navbar.html" %} {% block content %} {% endblock %}
+    <header>
+      {% include "navbar.html" %}
+      <h1>Lista prezentów</h1>
+    </header>
+
+    {% block content %} {% endblock %}
   </body>
 </html>
