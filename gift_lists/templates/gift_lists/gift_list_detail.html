@@ -1,45 +1,41 @@
-{% extends "base/base.html" %} {% block content %}
+{% extends "base/base.html" %} 
+{% block title %} Lista: {{ object.name }} {% endblock title%} 
 
-<h2>{{ object.name }}</h2>
+{% block content %}
+  <a href="{% url 'gift-add' pk=object.pk %}" class="button">Dodaj nowy prezent</a>
 
-<a href="{% url 'gift-add' pk=object.pk %}" class="button"
-  >Dodaj nowy prezent</a
->
+  {% for gift in object.gifts.all %}
+    <table style="width: 100%">
 
-{% for gift in object.gifts.all %}
+      <tr>
+        <td style="width: 80%"><h5>{{ gift.name }}</h5></td>
+        {% if gift.image_url %}
+          <td>
+            <img
+              alt="{{ gift.name }}"
+              src="{{ gift.image_url }}"
+              style="width:100px height:100px"
+            />
+          </td>
+        {% endif %}
+      </tr>
 
-<table style="width: 100%">
-  <tr>
-    <td style="width: 80%"><h5>{{ gift.name }}</h5></td>
-    {% if gift.image_url %}
-    <td>
-      <img
-        alt="{{ gift.name }}"
-        src="{{ gift.image_url }}"
-        style="width:100px height:100px"
-      />
-    </td>
-    {% endif %}
-  </tr>
-  {% if gift.description %}
-  <tr>
-    <td colspan="2">{{ gift.description }}</td>
-  </tr>
-  {% endif %} {% if gift.shop_urls %}
-  <tr>
-    <td colspan="2">
-      <ol>
-        {% for shop in gift.shop_urls.all %}
-        <li>
-          <a href="{{ shop.url }}" target="_blank"
-            >{{ shop.url | truncatechars:60 }}</a
-          >
-        </li>
-        {% endfor %}
-      </ol>
-    </td>
-  </tr>
-  {% endif %}
-</table>
-
-{% endfor %} {% endblock %}
+      {% if gift.description %}
+        <tr>
+          <td colspan="2">{{ gift.description }}</td>
+        </tr>
+      {% endif %} 
+      {% if gift.shop_urls %}
+        <tr>
+          <td colspan="2">
+            <ol>
+              {% for shop in gift.shop_urls.all %}
+                <li><a href="{{ shop.url }}" target="_blank">{{ shop.url | truncatechars:60 }}</a></li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
+      {% endif %}
+    </table>
+  {% endfor %}
+{% endblock content %}
