@@ -26,7 +26,8 @@
           <td colspan="2">{{ gift.description }}</td>
         </tr>
       {% endif %} 
-      {% if gift.shop_urls %}
+
+      {% if gift.shop_urls.all %}
         <tr>
           <td colspan="2">
             <ol>
@@ -37,6 +38,7 @@
           </td>
         </tr>
       {% endif %}
+
     </table>
   {% endfor %}
 {% endblock content %}
