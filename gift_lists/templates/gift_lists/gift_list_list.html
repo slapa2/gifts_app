@@ -1,24 +1,15 @@
 {% extends "base/base.html" %} {% block content %}
+
 <h2>Moje listy:</h2>
 
-<div class="list-group">
-  <a
-    href="{% url 'gift-list-add' %}"
-    class="list-group-item list-group-item-action list-group-item-success"
-  >
-    Dodaj nową listę prezentów
-  </a>
+<a href="{% url 'gift-list-add' %}" class="button"
+  >Dodaj nową listę prezentów</a
+>
 
+<ul>
   {% for object in object_list %}
-
-  <a
-    href="{{ object.get_absolute_url }}"
-    class="list-group-item list-group-item-action"
-  >
-    {{ object.name }}
-  </a>
-
+  <li><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></li>
   {% endfor %}
-</div>
+</ul>
 
 {%endblock %}
